@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +9,10 @@ using Newtonsoft.Json;
 
 namespace HttpTriggeredQueueOutputFunction
 {
-    public static class Function1
+    public class HttpTriggeredFunction
     {
-        [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
+        [FunctionName("HttpTriggeredFunction")]
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
