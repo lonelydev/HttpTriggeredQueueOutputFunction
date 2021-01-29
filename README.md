@@ -173,3 +173,7 @@ There you have it! You just created an http triggered function and also deployed
 ![publishoptions6postdeploymentscreen.png](images/publishoptions6postdeploymentscreen.png)
 This particular screenshot appears to have some warning icons and it is for good reason. We haven't configured any of those dependencies yet. 
 We will do this as a next step, soon, maybe even tomorrow.
+
+## Let us take a look at how to configure an important and useful feature
+
+[Setting up Application Insights for your Azure function](./SetupAppInsights.md)
