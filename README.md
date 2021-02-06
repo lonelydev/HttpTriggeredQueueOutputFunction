@@ -177,3 +177,7 @@ We will do this as a next step, soon, maybe even tomorrow.
 ## Let us take a look at how to configure an important and useful feature
 
 [Setting up Application Insights for your Azure function](./SetupAppInsights.md)
+
+## Configure Azure Storage and link it to your app
+
+[Setting up Azure Storage Account and link it to your app](./SetupStorageAccounts.md)

@@ -52,4 +52,4 @@ If you clicked on the button, the remaining set of input required, will be simil
 Are you ready to go then?
 Well, in my case, I had already configured the storage account on the portal. So I could run the function right away hosted on Azure using the browser itself and it started logging to the application insights instance too.
 
-Let us take a brief look at configuring Storage accounts later.
+Let us take a brief look at [Setting up Azure Storage Account and link it to your app](./SetupStorageAccounts.md)
