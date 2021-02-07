@@ -39,8 +39,11 @@ If you clicked on the button, the remaining set of input required, will be simil
 
 - Once you have added an AppInsights instance, you can configure that application insights to be the target of the telemetry from the app. The IDE's wizard would present to you the ability to save the `APPINSIGHTS_CONNECTION_STRING` into your Azure app settings. Accept it and proceed to confirm that you can close the wizard on successful configuration! The configure button will now be accomponied with a green success symbol - a check/tick symbol. 
   - **Please see [Troubleshooting Application Insights](#troubleshooting-application-insights). I have corrected the name of the connection string setting here after I found the problem. Apologies for not finding it earlier.**
+  - Connection string setting for AppInsights aren't used by the azure function - ![The right way to configure app insights connection string](images/correct-appinsights-connection-string.png)
 
-- You have now successfully created a new appinsights instance and you really want to see if it is working now. 
+- When you have set it all up correctly, you will be able to see something similar to the following screenshot in your Azure Portal. 
+    - ![If all is set up correctly for the function](images/appinisghtswheninstrumentationkeyisset.png)
+
 
 - Copy the URL of the function app from the publish window
 
@@ -59,6 +62,22 @@ Let us take a brief look at [Setting up Azure Storage Account and link it to you
 
 So you followed all the instructions given here and you didn't get any logs in application insights!? I'm not surprised. I had the same problem. I checked the Configuration section for the Azure function and saw that there was a setting called `APPINSIGHTS_CONNECTIONSTRING` and I assumed that would be sufficient for the azure function to know which Application Insights instance it should log to. 
 
-Spoiler alert. This was a mistake! A TYPO. The actual name of the setting is supposed to be `APPINSIGHTS_CONNECTION_STRING`. This is clearly  mentioned in [the microsoft docs for Application Insights Connection strings](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string?tabs=net#environment-variable). However, I do not know how the wrong settings
+This I initially thought was a mistake! I thought it was a TYPO on my part. The actual name of the setting is supposed to be `APPINSIGHTS_CONNECTION_STRING`? or so I thought. 
 
-If the connection string setting is set, then Application insights will be setup correctly. If however, that is not set correctly, then the app will fallback to the AppInsights Instrumentation key settings: Apparently as the [Docs for configuring application insights](https://docs.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2) for functions state somewhere below that it is the setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that matters. If you ignore this, your logs will not appear in the desired AppInsights instance. 
+This is clearly  mentioned in [the microsoft docs for Application Insights Connection strings](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string?tabs=net#environment-variable). 
+
+However, adding this environment variable or app setting in the local settings didn't seem to work for the azure function! Logs didn't appear in application insights. Again the logs don't appear instantly, there is a bit of delay but not like a half an hour delay, just a few minutes. 
+
+I was told through twitter by Azure Support that, if the connection string setting is set, then Application insights would be setup correctly. If however, that is not set correctly, then the app will fallback to the AppInsights Instrumentation key settings. But this doesn't seem to be the case for Azure Functions!
+
+**In order get your Azure Function to log to application insights, you need to set the Instrumentation Key setting and not the AppInsights Connection string. Throughout the [Monitoring docs for Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2) it is mentioned that the instrumentation key is what is necessary. It is the setting named `APPINSIGHTS_INSTRUMENTATIONKEY` that matters. If you ignore this, your logs will not appear in the desired AppInsights instance.**
+
+## Test Configuration locally
+
+Once you have `APPINSIGHTS_INSTRUMENTATIONKEY` set correctly in the `local.settings.json` you can run your function app view the requests being logged in there. 
+
+An example logged request can be seen here: 
+
+![Example request hitting local host function app instance in AppInsights](images/localhostruninappinsightslogged.png)
+
+Apologies for the confusion but I had to find it out the hard way too. 
