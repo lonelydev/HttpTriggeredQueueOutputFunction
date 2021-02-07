@@ -58,6 +58,18 @@ In this case, csharp. Copy the build section and then the deploy section and cre
 
 Often you will have to create sections where you override some application settings too. 
 
+### Create your Yaml using Azure Devops Pipeline
+
+When you go to the Pipelines section of your organisation's Azure Devops, it will allow you to create a new azure pipeline. 
+
+This will take you through some steps, seeking your input in which repository you want to create this yml file for and will automatically analyse your repository to find out what type of project it is and also seek the subscription from you and finally generate the YAML. 
+
+Based on my experience this is the easiest way to setup the YAML file. And you'll be able to make further changes to this too. I only tried out hte yml creation using the CLI thinking that would be quicker, as I come from a linux background. But nope. I can assure you it is not. So please stick to the Azure Devops pipeline way of creating a yaml file. This way you not only get the build but also the deploy tasks created in the YAML.
+
+In fact following the wizard on the website will also allow you to save the changes to the repository! 
+
+When your pipeline is ready, go select the pipelin from Azure Devops and run it. 
+
 ### Try YAML creation using Azure CLI
 
 First go download and install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
