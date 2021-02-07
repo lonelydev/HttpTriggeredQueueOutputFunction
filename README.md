@@ -25,6 +25,7 @@ You really don't need to download the professional or enterprise edition of Visu
 You can download the latest [Visual Studio](https://visualstudio.microsoft.com/downloads/).
 
 If you already have visual studio installed, then open visual studio installer and check if you have installed the Azure development tools.
+
 ![vsinstallerazuredevelopment.png](images/vsinstallerazuredevelopment.png)
 
 If the Azure development checkbox is checked already, then you don't need anything more. Else, just install it.
@@ -181,3 +182,16 @@ We will do this as a next step, soon, maybe even tomorrow.
 ## Configure Azure Storage and link it to your app
 
 [Setting up Azure Storage Account and link it to your app](./SetupStorageAccounts.md)
+
+## Configure Continuous integration Pipeline on Azure DevOps
+
+Azure Devops is a popular project management service offering from Azure. It provides you some cool stuff:
+
+* Azure Boards - your agile/scrum/kanban boards to plan, track and collaborate
+* Azure Pipelines - you get to build, test and deploy with CI/CD to the cloud!
+* Azure Repos - host your prviate git repos and collaborate here
+* Azure Test plans - Maintain a log of test execution and plans
+* Azure Artifacts - Host your own nuget packages
+* Extensions store - install cool extensions to your organisation free and paid!
+
+So let us explore how to [create a pipeline yaml file](./SetupAzureDevopsPipeline.md) 
