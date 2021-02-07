@@ -70,7 +70,7 @@ In fact following the wizard on the website will also allow you to save the chan
 
 When your pipeline is ready, go select the pipelin from Azure Devops and run it. 
 
-### Try YAML creation using Azure CLI
+### Try YAML creation using Azure CLI (might as well not do this as the earlier method is better)
 
 First go download and install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
@@ -108,4 +108,7 @@ Anyway, I've averted the disaster locally by not agreeing to force push the chan
 Let's take a look at the yml file. 
 
 I'm slightly disappointed. It only created the yaml for the build. But we can take a look at how to deploy later. 
- 
+
+## How to setup KeyVaults for your Azure Function App
+
+[How to Azure Key Vault your Function App](./AzureKeyVault.md)

@@ -135,3 +135,25 @@ So let us explore how to [create a pipeline yaml file](./SetupAzureDevopsPipelin
 What can we do with the function now?
 
 We can run the function and we can see how it is logging all the requests to Application Insights. 
+
+We can also run and test the function on Azure in the portal!
+
+* Click on the Functions > Functions in the left hand side navigation bar
+
+You'll be able to select the function you want in the right hand side preview pane and then presented with the option to test it!
+
+## Cool function app local development trick in Visual Studio
+
+If you ever wanted to download all the settings from the portal to your `local.settings.json` which is not committed to source control, you could use the package manager console and run a few commands. 
+Run the following command inside the directory of the function app. if your solution directory and project directory are not the same, make sure you cd into your project's directory before you run the command. 
+
+```pwsh
+func azure functionapp fetch-app-settings <functionappnamegoesherewithoutanglebrackets>
+func settings decrypt
+```
+
+That will only work within the visual studio environment. This is not the Azure CLI, I am yet to find the equivalent to execute from Azure CLI so that you can achieve the same result. 
+
+## How to setup KeyVaults for your Azure Function App
+
+[How to Azure Key Vault your Function App](./AzureKeyVault.md)
