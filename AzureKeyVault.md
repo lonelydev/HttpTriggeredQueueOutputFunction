@@ -12,11 +12,13 @@
 
 Upto that point everything is simple, but then you get asked some questions about Recovery. You can read more about these on [Microsoft Docs for KeyVaults](https://docs.microsoft.com/en-gb/azure/key-vault/general/soft-delete-overview?WT.mc_id=Portal-Microsoft_Azure_KeyVault#soft-delete-behavior)
 
-- soft delete - when enabled a keyvault marked as deleted are retained for a specific number of days - 90 by default
-- days to retain - can override the default here
-- purge protection - this is extra protection for the soft deleted items to be exempted from purge until the retention period has passed.
+* soft delete - when enabled a keyvault marked as deleted are retained for a specific number of days - 90 by default
+* days to retain - can override the default here
+* purge protection - this is extra protection for the soft deleted items to be exempted from purge until the retention period has passed.
 
-Moving on. Without making any further choices, just press `Review and Create` and create the keyvault already. 
+Moving on. 
+
+Without making any further choices, just press `Review and Create` and create the keyvault already.
 
 ## Add Secrets to the vault
 
@@ -97,3 +99,5 @@ namespace MyFunctionStartupFileNamespace
 This way, the `IConfiguration` instance would now have `AzureKeyVaultConfigurationProvider` and would be accessible anywhere in the application.
 
 Read more about [Customizing Configuration Sources in Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection#customizing-configuration-sources).
+
+[Back to Main page](./README.md)

@@ -90,7 +90,7 @@ Only the subscription that it has chosen as a target.
 
 To set another subscription as the target, run `az account set --subscription <subscription name or id>`
 
-Then run the earlier comand again in the same location as the `host.json` file. 
+Then run the earlier comand again in the same location as the `host.json` file.
 
 A thing to note is that the command is a bit over the top. It will initialise a new git repo locally inside your project directory! I'm glad that I know the workings of git to undo this crazy behaviour. But it did create a yml file. 
 However, it will ask you for the following:
@@ -107,8 +107,10 @@ Anyway, I've averted the disaster locally by not agreeing to force push the chan
 
 Let's take a look at the yml file. 
 
-I'm slightly disappointed. It only created the yaml for the build. But we can take a look at how to deploy later. 
+I'm slightly disappointed. It only created the yaml for the build. But we can take a look at how to deploy later. or just refer to the earlier [Deploy Using Azure Devops Pipelines](###deploy-using-Azure-Devops---azure-pipelines)
 
 ## How to setup KeyVaults for your Azure Function App
 
 [How to Azure Key Vault your Function App](./AzureKeyVault.md)
+
+[Back to Main page](./README.md##function-on-portal)
