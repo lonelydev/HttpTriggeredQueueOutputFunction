@@ -1,6 +1,6 @@
 # Application Insights
 
-Logging and monitoring a key part of every application in general. It becomes even more important when you go serverless as you don't have the option to log into a server and look for the operating system logs there. So it would be foolish to not configure logging for your Azure function. 
+Logging and monitoring are a key part of every application in general. It becomes even more important when you go serverless as you don't have the option to log into a server and look for the operating system logs there. So it would be foolish to not configure logging for your Azure function. 
 
 Luckily, Azure functions, are hooked into Microsoft's telemetry logging platform - Application Insights. As Microsoft describes it
 
@@ -12,17 +12,17 @@ Refer the [Application Insights official documentation](https://docs.microsoft.c
 
 If you are using Visual Studio, like I was showing you in the earlier page, you can configure application insights directly from the IDE, within the same Publish window.
 
-![publishoptions6postdeploymentscreen.png](images/publishoptions6postdeploymentscreen.png)
+<img src="images/publishoptions6postdeploymentscreen.png" width="70%"/>
 
-In the service dependencies section, you might have noticed that it shows Application Insights a configure button. 
+In the service dependencies section, you might have noticed that it shows Application Insights and a configure button. 
 
-It is totally upto you to do this in the IDE or the portal. For convenience and continuity, I'm going to do it from the IDE. I have done it from the portal too and I must admit, Microsoft has done a great job at keeping the experience very consistent. 
+It is totally upto you to do this in the IDE or on azure portal. For convenience and continuity, I'm going to do it from the IDE. I have done it from the portal too and I must admit, Microsoft has done a great job at keeping the experience very consistent on the IDE and the portal.
 
     PS: I will not be sharing as many screenshots as I did earlier. This is due to the feedback I received about screenshots. Applications evolve and appearances might change. So I'm better off describing the inputs in words than in pictures. Although a picture speaks a thousand words, it is probably not great for this context. 
 
 ### On the portal
 
-If you want to configure your function with application insights on the portal, head to the [portal](https://portal.azure.com/), search for the function using the search input box, find your function and then look for `Application Insights` in the navigation pane and you wil be presented the option to `Turn on Application Insights`. 
+If you want to configure your function with application insights on the portal, head to the [portal](https://portal.azure.com/), search for the function using the search input box, find your function and then look for `Application Insights` in the navigation pane and you wil be presented the option to `Turn on Application Insights`.
 
 If you clicked on the button, the remaining set of input required, will be similar whether you do it from the IDE or the portal.
 
@@ -44,7 +44,6 @@ If you clicked on the button, the remaining set of input required, will be simil
 - When you have set it all up correctly, you will be able to see something similar to the following screenshot in your Azure Portal. 
     - ![If all is set up correctly for the function](images/appinisghtswheninstrumentationkeyisset.png)
 
-
 - Copy the URL of the function app from the publish window
 
 - Paste it into our browser and add the following part to the url
@@ -60,11 +59,11 @@ Let us take a brief look at [Setting up Azure Storage Account and link it to you
 
 ## Troubleshooting Application insights
 
-So you followed all the instructions given here and you didn't get any logs in application insights!? I'm not surprised. I had the same problem. I checked the Configuration section for the Azure function and saw that there was a setting called `APPINSIGHTS_CONNECTIONSTRING` and I assumed that would be sufficient for the azure function to know which Application Insights instance it should log to. 
+So you followed all the instructions given here and you didn't get any logs in application insights!? I'm not surprised. I had the same problem. I checked the Configuration section for the Azure function and saw that there was a setting called `APPINSIGHTS_CONNECTIONSTRING` and I assumed that would be sufficient for the azure function to know which Application Insights instance it should log to.
 
-This I initially thought was a mistake! I thought it was a TYPO on my part. The actual name of the setting is supposed to be `APPINSIGHTS_CONNECTION_STRING`? or so I thought. 
+This I initially thought was a mistake! I thought it was a TYPO on my part. The actual name of the setting is supposed to be `APPINSIGHTS_CONNECTION_STRING`? or so I thought.
 
-This is clearly  mentioned in [the microsoft docs for Application Insights Connection strings](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string?tabs=net#environment-variable). 
+This is clearly  mentioned in [the microsoft docs for Application Insights Connection strings](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sdk-connection-string?tabs=net#environment-variable).
 
 However, adding this environment variable or app setting in the local settings didn't seem to work for the azure function! Logs didn't appear in application insights. Again the logs don't appear instantly, there is a bit of delay but not like a half an hour delay, just a few minutes. 
 
@@ -74,10 +73,12 @@ I was told through twitter by Azure Support that, if the connection string setti
 
 ## Test Configuration locally
 
-Once you have `APPINSIGHTS_INSTRUMENTATIONKEY` set correctly in the `local.settings.json` you can run your function app view the requests being logged in there. 
+Once you have `APPINSIGHTS_INSTRUMENTATIONKEY` set correctly in the `local.settings.json` you can run your function app view the requests being logged in there.
 
 An example logged request can be seen here: 
 
-![Example request hitting local host function app instance in AppInsights](images/localhostruninappinsightslogged.png)
+<img src="images/localhostruninappinsightslogged.png" width="70%"/>
 
-Apologies for the confusion but I had to find it out the hard way too. 
+Apologies for the confusion but I had to find it out the hard way too.
+
+[Back to Main page](./README.md##configure-azure-storage-and-link-it-to-your-app)
